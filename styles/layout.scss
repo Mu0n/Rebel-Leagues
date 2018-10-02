@@ -1,0 +1,563 @@
+
+
+/*	LAYOUT STRUCTURE */
+div#topBar {
+	width: 100%;
+	height: 40px;
+	
+	div {
+		margin: 0 auto;
+	}
+}
+
+div#wrapper {
+	margin: 0 auto;
+
+	div#right {
+		header {
+		}
+		aside {
+		}
+	}
+
+	div#left {
+		section {
+		}
+	}
+}
+
+
+
+// Default styling here
+div#topBar div {
+	 width: 100%;
+	 
+ 	 nav {
+	 	 div {
+			position: absolute;
+			top: 40px;
+			
+			a {
+				display: block;
+				width: 100%;
+			}
+		 }
+ 	 }
+
+	 a.rebelLeagues {
+	 	margin-right: 10px;
+	 }
+
+}
+
+div#wrapper { width: 100%; }
+
+	div#right {
+		width: 100%;
+		
+		header {
+			width: 100%;
+			margin-top: 20px;
+			padding: 0 10px;
+		}
+		nav { display: none; }
+		aside { display: none; }
+	}
+	
+	div#left {
+		width: 100%;
+		
+		> section {
+			width: 100%;
+			
+			div#main {
+			
+				div#gamesHistoryFilter {
+					width: 100%;
+					padding: 10px 10px 0 10px;
+				}
+			
+				div.game {
+					width: 100%;
+					padding: 10px 0 10px 10px;
+					display: table;
+					table-layout: fixed;
+					
+					div.player {
+						display: table-cell;
+						vertical-align: middle;
+						
+						width: 50%;
+						
+						> div {
+							width: 100%;
+							display: table;
+						
+							div.badges {
+								width: 100%;
+								text-align: center;
+								margin-top: 10px;
+								font-size: 0;
+								
+								img.badge {
+									width: 40px;
+									height: 40px;
+								}
+							}
+							div.playerid {
+								width: 100%;
+								text-align: center;
+							}
+						}
+					}
+				}
+					
+				div.attributes {
+					padding: 0 10px 10px 10px;
+					
+					div.moreInfo {
+						display: block;
+						float: right;
+						
+						i {
+							font-size: $large_text;
+						}
+					}
+				}
+				
+				div.notes {
+					padding: 0 10px 10px 10px;
+					margin-top: -10px;
+				}
+				
+				> div.player {
+					width: 100%;
+					padding: 10px;
+					
+					div.playerid {
+						width: 100%;
+					}
+					div.player_stats {
+						width: 100%;
+						text-align: center;
+						margin-top: 10px;
+					}
+				}
+			}
+		}
+		
+		footer {
+			width: 100%;
+			text-align: center;
+			
+			div.left {
+				margin-bottom: 20px;
+			}
+			div.right {  }
+
+		}
+	}
+    
+    
+    div.playersReview,
+    div.factionsReview {
+        > header {
+            padding: 20px 0;
+            
+            select {
+                width: 80%;
+                margin: 0 10%;
+            }
+        }
+        
+        
+        > section#usageGraph {
+            padding: 10px;
+        }
+        
+        > section {
+            > header {
+                padding: 10px 10px 10px 66px;
+                position: relative;
+                min-height: 66px;
+                
+                div.playerid,
+                div.factionid {
+                    overflow: auto;
+                    
+                    img.badge {
+                        height: 46px;
+                        margin-right: 10px;
+                        position: absolute;
+                        left: 10px;
+                    }
+                }
+            }
+            
+            > section {
+                padding: 10px;
+            }
+            
+            section#performanceHistory {
+                canvas.chart {
+                    position: relative;
+                    top: 10px;
+                }
+            }
+            
+            section#factionEfficiencyStatsWith,
+            section#factionEfficiencyStatsAgainst,
+            section#factionEfficiencyStats {
+                position: relative;
+                    
+                div.faction {
+                    padding: 10px 10px 10px 56px;
+                    min-height: 66px;
+                    width: 100%;
+                    
+                    overflow: auto;
+                    
+                    > img.badge {
+                        height: 46px;
+                        margin-right: 10px;
+                        position: absolute;
+                        left: 10px;
+                    }
+                }
+                
+                div.faction.titleRow {
+                    padding-bottom: 0px;
+                    min-height: 0px;
+                }
+            }
+        }
+    }
+    
+
+	.modal-dialog {
+		width: $cols4;
+		margin-left: -( $cols4/2 );
+	}
+	
+	div.modal {
+	
+		header {
+			padding: 10px;
+			
+			i.close {
+				top: 10px;
+				right: 10px;
+			}
+		}
+		
+		section {
+			ul {
+				li {
+					div.faction {
+						> div {
+							div.logo {
+								display: none;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+// Little larger screen
+@media only screen and (min-width: 480px) {
+	div#topBar div {
+		width: $cols6;
+		
+
+		a.rebelLeagues {
+			margin-right: 0;
+		}
+	 
+	}
+	div#wrapper { width: $cols6; }
+	
+		div#right {
+			width: $cols6;
+			
+			header {
+				padding: 0;
+			}
+			aside {  }
+		}
+		
+		div#left {
+			width: $cols6;
+		}
+
+	.modal-dialog {
+		width: $cols6;
+		margin-left: -( $cols6/2 );
+	}
+}
+
+// Pads and larger phones
+@media only screen and (min-width: 600px) {
+	div#topBar div { width: $cols7; }
+	div#wrapper { width: $cols7; }
+	
+    div#right {
+        width: $cols7;
+        
+        header {  }
+        aside {  }
+    }
+    
+    div#left {
+        width: $cols7;
+    }
+        
+	.modal-dialog {
+		width: $cols7;
+		margin-left: -( $cols7/2 );
+	}
+}
+			
+
+// Larger pads
+@media only screen and (min-width: 768px) {
+	div#topBar {
+		 div {
+		 	width: $cols9;
+		 	
+		 	nav { display: none; }
+	 	}
+	}
+	div#wrapper { width: $cols9; }
+	
+		div#right {
+			width: $cols3;
+			float: right;
+			
+			header {
+				margin-top: 70px;
+			}
+			
+			nav, aside {
+				display: block;
+				width: 100%;
+			}
+		}
+		
+		div#left {
+			width: $cols6;
+			float: left;
+		}
+
+	.modal-dialog {
+		width: $cols8;
+		margin-left: -( $cols8/2 );
+	}
+	
+	div.modal {
+		
+		header {
+			padding: 20px;
+		
+			div.logo {
+				img {
+					margin-right: 20px;
+				}
+			}
+			
+			div.name {
+				display: table-cell;
+				vertical-align: middle;
+			}
+			
+			i.close {
+				top: 15px;
+				right: 15px;
+			}
+		}
+		
+		section {
+			ul {
+				li {
+					div.faction {
+						> div {
+							display: table;
+						
+							div.logo {
+								display: table-cell;
+								width: 50px;
+							}
+							
+							div.name {
+								display: table-cell;
+								vertical-align: middle;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Larger screens
+@media only screen and (min-width: 900px) {
+	div#topBar div { width: $cols11; }
+	div#wrapper { width: $cols11; }
+	
+		div#right {
+			width: $cols3;
+		}
+		
+		div#left {
+			width: $cols8;
+			
+			section {
+			
+				div#main {
+					
+					div.game {
+						padding: 20px;
+						
+						div.player {
+						
+							> div {
+								div.badges {
+									display: table-cell;
+									vertical-align: middle;
+									
+									width: 40%;
+									
+									img.badge {
+										width: 50px;
+										height: 50px;
+									}
+								}
+								div.playerid {
+									display: table-cell;
+									vertical-align: middle;
+									
+									width: 60%;
+								}
+							}
+						}
+						div.player1 {
+							> div {
+								div.badges {
+									text-align: left;
+									position: relative;
+									left: -60%;
+								}
+								div.playerid {
+									text-align: right;
+									padding-right: 10px;
+									position: relative;
+									right: -40%;
+								}
+							}
+						}
+						div.player2 {
+							> div {
+								div.badges {
+									text-align: right;
+								}
+								div.playerid {
+									text-align: left;
+									padding-left: 10px;
+								}
+							}
+						}
+						
+						div.moreInfo {
+						}
+						
+					}
+					
+					div.attributes {
+						padding: 0 20px 20px 20px;
+					}
+					
+					div.notes {
+						padding: 0 20px 20px 20px;
+					}
+					
+				
+					> div.player {
+						padding: 20px 10px 20px 20px;
+						
+						display: table;
+						float: none;
+						
+						div.playerid {
+							float: none;
+							display: table-cell;
+							vertical-align: middle;
+							
+							width: 30%;
+						}
+						div.player_stats {
+							float: none;
+							display: table-cell;
+							vertical-align: middle;
+							
+							
+							text-align: left;
+							width: 70%;
+							margin-top: 0;
+						}
+					}
+				}
+			}
+			
+			footer {
+			
+				div.left {
+					margin-bottom: 0;
+					width: 60%;
+					float: left;
+					text-align: left;
+				}
+				div.right {
+					width: 40%;
+					float: right;
+					text-align: right;
+				}
+			}
+		}
+}
+
+// Horizontal pads and laptops
+@media only screen and (min-width: 992px) {
+	div#topBar div { width: $cols12; }
+	div#wrapper { width: $cols12; }
+	
+		div#right {
+			width: $cols3;
+		}
+		
+		div#left {
+			width: $cols9;
+		}
+
+}
+
+// Desktop screens
+@media only screen and (min-width: 1200px) {
+	div#topBar div { width: $cols15; }
+	div#wrapper { width: $cols15; }
+	
+    div#right {
+        width: $cols4;
+    }
+    
+    div#left {
+        width: $cols11;
+    }
+
+}
+
+
+
+
+

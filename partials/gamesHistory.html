@@ -1,0 +1,72 @@
+
+	<div id="gamesHistoryFilter">
+		<div games-filter-editor ng-model="filters"></div>
+		<button ng-click="filter()" class="fullWidth">Filtrer les parties</button>
+	</div>
+	
+	<div ng-repeat="game in games">
+	
+		<div class="date" ng-if="game.is_group_title">
+			{{ game.date_string }}
+		</div>
+			
+		<div class="game clear" ng-if="!game.is_group_title">
+		
+			<div class="player player1">
+				<div>
+					<div class="player1 playerid">
+						<span class="nickname">{{ game.player1_nickname }} <i class="winner fa fa-trophy" ng-if="!game.is_draw" tooltip-html-unsafe="Victoire de <b>{{ game.player1_nickname }}</b>"></i></span>
+						<span class="fullname">({{ game.player1_firstname }} {{ game.player1_lastname }})</span>
+					</div>
+					<div class="player1 badges">
+						<img class="badge"
+							src="api/factions/{{ game.player1_faction_id }}/logo"
+							tooltip="{{ game.player1_parent_faction_name }}{{ game.player1_parent_faction_name | iif : ' : ' : '' }}{{ game.player1_faction_name }}"
+							ng-click="showFactionModal(game.player1_faction_id)"
+						/>
+					</div>
+				</div>
+			</div>
+			
+			<div class="player player2">
+				<div>
+					<div class="player2 playerid">
+						<span class="nickname">{{ game.player2_nickname }}</span>
+						<span class="fullname">({{ game.player2_firstname }} {{ game.player2_lastname }})</span>
+					</div>
+					<div class="player2 badges">
+						<img class="badge"
+							src="api/factions/{{ game.player2_faction_id }}/logo"
+							tooltip="{{ game.player2_parent_faction_name }}{{ game.player2_parent_faction_name | iif : ' : ' : '' }}{{ game.player2_faction_name }}"
+							ng-click="showFactionModal(game.player2_faction_id)"
+						/>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+		<div class="attributes clear" ng-if="!game.is_group_title">
+			<span ng-repeat="attribute in game.attributes">
+				<span class="attribute" ng-if="attribute.icon == null || attribute.icon == ''">{{ attribute.name }}</span>
+				<i ng-if="attribute.icon != null && attribute.icon != ''" class="attribute fa {{ attribute.icon }}" tooltip="{{ attribute.name }}"></i></span>
+			</span>
+			
+			<span ng-if="game.is_time_runout">
+				<i class="attribute fa fa-clock-o" tooltip="Terminée par manque de temps"></i>
+			</span>
+			
+			<span>
+				<i class="attribute fa fa-file-text-o notes-icon" ng-show="game.notes" ng-class="{ 'active': game.showNotes }" ng-click="game.showNotes = !game.showNotes" tooltip="Afficher les notes"></i>
+			</span>
+		</div>
+		
+		<div class="notes" ng-show="game.showNotes">
+			{{ game.notes }}
+		</div>
+		
+	</div>
+	
+	<div class="loadMore" ng-if="!noMoreData" ng-click="loadMore(lastIndex)">
+		Afficher plus...
+	</div>

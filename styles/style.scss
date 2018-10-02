@@ -1,0 +1,827 @@
+
+/* IMPORT FRAMELESS */
+@import 'frameless';
+@import 'constants';
+@import 'layout';
+@import 'font-awesome/font-awesome.scss';
+
+
+/*  FONTS */
+@import url(http://fonts.googleapis.com/css?family=Signika:400,600,300);
+$main_font: "Signika", sans-serif;
+
+
+/* CLEAR FIX */
+.clear:before,
+.clear:after {
+    content: " ";
+    display: table;
+}
+
+.clear:after {
+    clear: both;
+}
+
+.scrollbar-dynamic {
+    max-height: 600px;
+    overflow: auto;
+}
+
+
+/*  GENERAL STYLING */
+
+body {
+	background-color: $background_color;
+	background-image: $background_image;
+	background-position: center top;
+	
+	font-family: $main_font;
+	font-weight: $light_weight;
+	font-size: $base_font_size;
+}
+
+div#topBar {
+	background-color: #c30008;
+	border-bottom: 1px solid #e92b32;
+	color: $xlight_color;
+	
+	div {
+		
+	 	 nav {
+			i {
+				float: left;
+				line-height: 40px;
+				padding: 0 12px;
+				cursor: pointer;
+			}
+			
+			i:hover {
+				color: #c30008;
+				background-color: $xlight_color;
+			}
+		
+	 	 	div {
+				background: $light_color;
+				border-bottom: 3px solid $accent_color;
+				
+				a {
+					color: $xxdark_color;
+					text-align: center;
+					line-height: 40px;
+					text-decoration: none;
+				}
+				a:hover {
+					font-weight: $heavy_weight;
+				}
+	 	 	}
+		 }
+		
+		a.rebelLeagues {
+			line-height: 40px;
+			text-decoration: none;
+			color: inherit;
+			float: right;
+			
+			strong {
+				font-weight: $heavy_weight;
+			}
+		}
+	}
+}
+
+div#wrapper {
+
+	div#right {
+		
+		color: $xdark_color;
+	
+		header {
+		
+			img#logo {
+				width: 100px;
+				height: 100px;
+				display: block;
+				
+				background: purple;
+				border-radius: 50px;
+				box-shadow: 0 0 0 3px $xlight_color; /* This is actually a border. */
+				
+				margin: 0 auto;
+			}
+			
+			h1 {
+				margin-top: 10px;
+				
+				text-align: center;
+				color: $xlight_color;
+				font-size: $large_text;
+				font-weight: $heavy_weight;
+			}
+			h2 {
+				text-align: center;
+				font-size: 1em;
+				font-weight: 100;
+			}
+			div.description {
+				margin-top: 10px;
+				text-align: left;
+				font-size: 0.8em;
+				font-weight: 100;
+				
+				a, b {
+					color: $xlight_color;
+				}
+			}
+		}
+		
+		nav {
+			color: $xdark_color;
+			
+			border-top: 3px solid $xlight_color;
+			margin-top: 30px;
+			padding-top: 10px;
+			
+			border-bottom: 3px solid $xlight_color;
+			margin-bottom: 30px;
+			padding-bottom: 10px;
+			
+			a {
+				display: block;
+				font-weight: $xlight_weight;
+				text-align: center;
+				padding: 5px 0 4px 0;
+				text-decoration: none;
+				color: $xlight_color;
+			}
+			a:hover {
+				font-weight: $heavy_weight;
+			}
+			a.active {
+				background-color: $accent_color;
+				color: $xlight_color;
+			}
+		}
+		
+		aside {
+			
+			div#stats {
+				ul {
+					list-style-type: none;
+					
+					li {
+						margin-bottom: 10px;
+						
+						span {
+							box-sizing: border-box;
+							-moz-box-sizing: border-box;
+							transition: padding-left ease 200ms,
+										padding-right ease 200ms;
+										
+							color: $dark_color;
+						}
+						
+						span.left {
+							display: inline-block;
+							width: 80%;
+							float: left;
+						}
+						span.right {
+							display: inline-block;
+							width: 19%;
+							float: right;
+							
+							color: $accent_color;
+							font-weight: $heavy_weight;
+							text-align: right;
+						}
+					}
+					
+					li:hover {
+						span.left {
+							padding-left: 10px;
+						}
+						span.right {
+							padding-right: 10px;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	div#left {
+        
+        margin-top: 30px;
+	
+		section {
+		
+			div#gamesHistoryFilter {
+				background-color: $accent_color;
+				
+				.fullWidth {
+					width: 100%;
+					margin-bottom: 10px;
+				}
+			}
+		
+			div#main {
+				background: $xlight_color;
+				color: $xdark_color;
+				
+				> div {
+					border-bottom: 1px solid $dark_color;
+				}
+				
+				div.date {
+					color: $accent_color;
+					font-weight: $medium_weight;
+					font-size: $normal_text;
+					
+					padding: 20px 20px 10px 20px;
+					border-bottom: 1px solid $accent_color;
+				}
+				
+				div.game,
+				> div.player {
+					
+					div.playerid {
+						span.nickname {
+							color: $xxdark_color;
+							font-weight: $medium_weight;
+						}
+						span.fullname {
+							display: block;
+							font-size: $small_text;
+						}
+					}
+				}
+				
+				div.game {
+					div.player {
+						i.winner {
+							color: $accent_color;
+							margin-left: 5px;
+						}
+						div.badges {
+							img {
+								cursor: pointer;
+							}
+						}
+					}
+				}
+				
+				div.attributes {
+				
+					text-align: right;
+				
+					span.attribute {
+						font-size: $small_text;
+						margin-right: 10px;
+						padding: 1px 3px;
+						border: 1px solid $xdark-color;
+						border-radius: 4px;
+					}
+					i.attribute {
+						font-size: $normal_text;
+						margin-right: 10px;
+						padding: 0 3px;
+					}
+				
+					div.moreInfo {
+						i {
+							display: inline-block;
+							color: $xdark_color;
+							margin: 0 0 5px 0;
+						}
+						i.fa-rotate-45 {
+							position: relative;
+							top: -3px;
+						}
+						i.notes-icon {
+							cursor: pointer;
+						}
+						i:hover,
+						i.active {
+							color: $accent_color;
+						}
+					}
+				}
+				
+				div.notes {
+					font-size: $small_text;
+					white-space: pre-line;
+				}
+				
+				> div.player {
+					div.playerid {
+						cursor: pointer;
+						text-align: center;
+					}
+					
+					div.player_stats {
+						font-size: $small_text;
+						color: $xxdark_color;
+					
+						i {
+							color: $xdark_color;
+						}
+					
+						div.stats_bar {
+							height: 15px;
+							margin-top: 5px;
+							
+							div {
+								height: 100%;
+								float: left;
+								background-color: $accent-color;
+							}
+							div.lighter {
+								background-color: lighten( $accent-color, 10%);
+							}
+							div.darker {
+								background-color: darken( $accent-color, 10%);
+							}
+							div.faction_stats_bar div:hover {
+								box-sizing: border-box;
+								border-bottom: 15px solid rgba(200,200,200,0.5);
+							}
+						}
+					}
+				}
+				
+				> div:nth-child(2n) {
+					background: $light_color;
+				}
+				
+				div.loadMore {
+					padding: 10px;
+					text-align: center;
+					cursor: pointer;
+					border-bottom: none;
+                    font-size: $small_text;
+				}
+				div.loadMore:hover {
+					background-color: $accent-color;
+					color: $light-color;
+				}
+			}
+		}
+		
+		footer {
+			color: $xdark_color;
+			padding: 20px 20px 60px 20px;
+			font-size: $small_text;
+			
+			a {
+				color: inherit;
+			}
+			
+			strong {
+				font-weight: $light_weight;
+				color: $dark-color;
+				
+				strong {
+					font-weight: $heavy_weight;
+				}
+			}
+		}
+	}
+}
+
+
+
+div.playersReview,
+div.factionsReview {
+    > header {
+        background-color: $dark_color;
+        
+        select {
+            font-size: $small_text;
+        }
+    }
+    
+    > section#usageGraph {
+        border-top: 0;
+        border-bottom: 3px solid $accent_color;
+        
+        h2 {
+            color: $xxdark_color;
+            font-weight: $medium_weight;
+        }
+        > span {
+            font-size: $small_text;
+        }
+    }
+    
+    > section {
+        border-top: 3px solid $accent_color;
+        background-color: $xlight_color;
+        
+        > header {
+            background-color: $xlight_color;
+            
+            div.playerid,
+            div.factionid {
+                text-align: left;
+            
+                span.name, span.nickname {
+                    color: $xxdark_color;
+                    font-weight: $medium_weight;
+                    font-size: $large_text;
+                    display: inline;
+                }
+                span.fullname {
+                    color: $xdark_color;
+                    font-size: $normal_text;
+                    display: inline;
+                }
+                > span {
+                    display: block;
+                    font-size: $small_text;
+                }
+            }
+            
+        }
+        
+        > section {
+            > h2 {
+                color: $xxdark_color;
+                font-weight: $medium_weight;
+            }
+        }
+        
+        
+            
+        section#performanceHistory {
+            > span {
+                font-size: $small_text;
+            }
+        }
+        
+        section#factionEfficiencyStatsWith,
+        section#factionEfficiencyStatsAgainst,
+        section#factionEfficiencyStats {
+            div.faction {
+                font-size: $small_text;
+                
+                strong {
+                    font-weight: $heavy_weight;
+                    color: $xxdark_color;
+                }
+                
+                div.stats_bar {
+                    height: 15px;
+                    margin-top: 5px;
+                    
+                    div {
+                        height: 100%;
+                        float: left;
+                        background-color: $accent-color;
+                    }
+                    div.lighter {
+                        background-color: lighten( $accent-color, 10%);
+                    }
+                    div.darker {
+                        background-color: darken( $accent-color, 10%);
+                    }
+                    div.faction_stats_bar div:hover {
+                        box-sizing: border-box;
+                        border-bottom: 15px solid rgba(200,200,200,0.5);
+                    }
+                }
+            }
+        }
+        
+        section#opponentStats {
+            ul {
+                li {
+                    display: table;
+                    width: 100%;
+                    padding: 10px;
+                    
+                    > span {
+                        font-size: $small_text;
+                        color: $xdark_color;
+                        strong {
+                            font-weight: $heavy_weight;
+                            color: $xxdark_color;
+                        }
+                    }
+                    
+                    div.stats_bar {
+                        height: 15px;
+                        margin-top: 5px;
+                        
+                        div {
+                            height: 100%;
+                            float: left;
+                            background-color: $accent-color;
+                        }
+                        div.lighter {
+                            background-color: lighten( $accent-color, 10%);
+                        }
+                        div.darker {
+                            background-color: darken( $accent-color, 10%);
+                        }
+                    }
+                    
+                }
+                
+                li.showAll {
+					padding: 10px;
+					text-align: center;
+					cursor: pointer;
+                    font-size: $small_text;
+				}
+				li.showAll:hover {
+					background-color: $accent-color;
+					color: $light-color;
+				}
+            }
+        }
+        
+        section#frequentUsers {
+            ul {
+                margin-top: 10px;
+                
+                li {
+                    list-style-type: none;
+                    font-size: $small_text;
+                    
+                    padding: 10px;
+                    
+                    strong {
+                        color: $xxdark_color;
+                    }
+                    
+                    div.stats_bar {
+                        height: 15px;
+                        margin-top: 5px;
+                        background-color: lighten( $accent-color, 10%);
+                        
+                        div {
+                            height: 100%;
+                            float: left;
+                            background-color: $accent-color;
+                        }
+                        div.darker {
+                            background-color: darken( $accent-color, 10%);
+                        }
+                        div.percentage_played_with div:hover {
+                            box-sizing: border-box;
+                            border-bottom: 15px solid rgba(200,200,200,0.5);
+                        }
+                    }
+                }
+                
+                li.showAll {
+					padding: 10px;
+					text-align: center;
+					cursor: pointer;
+                    font-size: $small_text;
+                }
+				li.showAll:hover {
+					background-color: $accent-color;
+					color: $light-color;
+				}
+            }
+        }
+        
+        > section {
+            border-top: 1px dashed $accent_color;
+            background-color: $dark_color;
+        }
+        
+        > section:nth-child(2n+1) {
+            background-color: $light_color;
+        }
+    }
+}
+
+
+div.tooltip {
+	position: absolute;
+	z-index: 2000;
+	margin-top: -5px;
+	
+	font-size: $base_font_size;
+	
+	background-color: $xlight_color;
+	border: 1px solid $dark_color;
+	border-bottom: 1px solid $accent_color;
+	border-radius: 1px;
+	
+	div.tooltip-inner {
+		font-size: $small_text;
+		color: $xdark_color;
+		text-align: center;
+		
+		padding: 10px;
+		
+		div.tooltip-content {
+		}
+	}
+	
+	div.tooltip-arrow {
+		width: 5px;
+		height: 5px;
+		border-top: 5px inset $accent_color;
+		border-left: 5px inset transparent;
+		border-right: 5px inset transparent;
+		
+		position: absolute;
+		bottom: -5px;
+		left: 50%;
+		margin-left: -5px;
+	}
+}
+	
+
+	
+	
+div.modal-backdrop {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	
+	background-color: rgba(0,0,0, 0.75);
+}
+div.modal {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+}
+
+div.modal-dialog {
+	position: fixed;
+	top: 5%;
+	height: 90%;
+	left: 50%;
+	
+	border: none;
+	
+	overflow: auto;
+	
+	div.modal-content {
+		overflow: auto
+	}
+}
+div.modal:focus {
+	outline: none
+}
+
+div.modal {
+	
+	header {
+		display: table;
+		width: 100%;
+			
+		background-color: $light_color;
+		border-bottom: 1px solid $accent_color;
+	
+		div.logo {
+			display: table-cell;
+			width: 60px;
+			font-size: 0;
+			
+			img {
+				height: 50px;
+				width: 50px;
+				
+				margin-right: 10px;
+			}
+		}
+		
+		div.name {
+			display: table-cell;
+			vertical-align: middle;
+			
+			h2 {
+				font-size: $small_text;
+				color: $xdark_color;
+			}
+			
+			h1 {
+				font-weight: $heavy_weight;
+				color: $xxdark_color;
+			}
+		}
+		
+		i.close {
+			position: absolute;
+			
+			height: $small_text;
+			width: $small_text;
+			
+			font-size: $small_text;
+			line-height: $small_text;
+			
+			color: $xdark_color;
+			cursor: pointer;
+		}
+		i.close:hover {
+			color: $xxdark_color;
+		}
+	}
+	
+	section {
+		background-color: $xlight_color;
+		
+		ul {
+			li {
+				display: table;
+				width: 100%;
+				padding: 10px;
+					
+				border-bottom: 1px solid $dark_color;
+				
+				div.faction,
+				div.player {
+					display: table-cell;
+					vertical-align: middle;
+					width: 40%;
+						
+					> div {
+						div.logo {
+							font-size: 0;
+							
+							img {
+								height: 40px;
+								width: 40px;
+							}
+						}
+						
+						div.name {
+							h2 {
+								font-size: $small_text;
+								color: $xdark_color;
+							}
+							
+							h1 {
+								font-weight: $heavy_weight;
+								color: $xxdark_color;
+							}
+						}
+					}
+				}
+				
+				
+				div.stats {
+					display: table-cell;
+					width: 60%;
+					vertical-align: middle;
+						
+					font-size: $small_text;
+					color: $xxdark_color;
+				
+					div.stats_bar {
+						height: 15px;
+						margin-top: 5px;
+						
+						div {
+							height: 100%;
+							float: left;
+							background-color: $accent-color;
+						}
+						div.lighter {
+							background-color: lighten( $accent-color, 10%);
+						}
+						div.darker {
+							background-color: darken( $accent-color, 10%);
+						}
+					}
+				}
+				
+			}
+			li:nth-child(2n) {
+				background-color: $light_color;
+			}
+		}
+	}
+	
+}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
